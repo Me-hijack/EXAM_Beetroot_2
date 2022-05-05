@@ -1,0 +1,17 @@
+// @mixin font_text ($size, $weight, $line-height, $color) {
+//     font-family: Lato;
+//     font-size: $size;
+//     font-weight: $weight;
+//     line-height: $line-height;
+//     color: $color;
+// }
+
+@mixin font_text ($size, $font-weight, $color-text) {
+    font-size: $size;
+    font-weight: $font-weight;
+    color: $color-text;   
+}
+
+@mixin width_limit () {
+    padding: 20px calc(50% - 590px);
+}
