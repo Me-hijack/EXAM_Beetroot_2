@@ -1,11 +1,3 @@
-// @mixin font_text ($size, $weight, $line-height, $color) {
-//     font-family: Lato;
-//     font-size: $size;
-//     font-weight: $weight;
-//     line-height: $line-height;
-//     color: $color;
-// }
-
 @mixin font_text ($size, $font-weight, $color-text) {
     font-size: $size;
     font-weight: $font-weight;
@@ -13,5 +5,39 @@
 }
 
 @mixin width_limit () {
-    padding: 20px calc(50% - 590px);
+    padding: 0 calc(50% - 590px);
+}
+
+@mixin title_line () {
+    content: "";
+    width: 100px;
+    position: absolute;
+    z-index: 3;
+    top: -20px;
+    left: calc(50% - 50px);
+}
+
+@mixin bkgr_projects ($color) {
+    position: absolute;
+    width: 40vw;
+    height: 470px;
+    content: "";
+    background-color: $color;
+    z-index: -1;
+}
+@mixin flex_justify-content ($justify-content-value) {
+    display: flex;
+    justify-content: $justify-content-value;
+}
+
+@mixin background_image-size($url, $width, $height) {
+    background: $url;
+    background-repeat: no-repeat;
+    width: $width;
+    height: $height; 
+}
+
+@mixin dimensions($height, $width) {
+    height: $height;
+    width: $width;
 }

@@ -7,7 +7,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 ul {
     list-style-type: none;
 }
@@ -24,11 +23,9 @@ h4 {
     font-family: $font_paragraph_text;
     @include font_text(18px, 400, $color_principle);
 }
-
 .btn {
     background-color: white;
-    width: 190px;
-    height: 50px;
+    @include dimensions(50px, 190px);
     border: 1px solid $color_principle;
     @include font_text(14px, 400, $color_principle);
     text-transform: uppercase;
@@ -43,17 +40,13 @@ h4 {
 // GENERAL HEADER
 .header {
     padding-top: 55px;
-    width: 100%;
-    height: 100vh;
-    background-image: url("../img/banner2.jpg");
-    background-repeat: no-repeat;
+    @include background_image-size(url("../img/banner2.jpg"), 100%, 100vh);
     background-position: 50% 0;
     background-size: cover;
     &::before {
         content: " ";
         display: block;
-        width: 100%;
-        height: 100vh;
+        @include dimensions(100vh, 100%);
         position: absolute;
         left: 0;
         top: 0;
@@ -63,23 +56,20 @@ h4 {
     &__banner {
         position: relative;
         @include width_limit;
-        display: flex;
+        @include flex_justify-content(center);
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         height: 100vh;
     }
 }
 .arrow {
     &__down {
-        height: 40px;
-        width: 40px;
+        @include dimensions(40px, 40px);
         position: absolute;
         bottom: 50px;
         left: calc(50% - 20px);
         &:hover {
-            height: 50px;
-            width: 50px;
+            @include dimensions(50px, 50px);
             left: calc(50% - 25px);
         }
     }
@@ -90,24 +80,20 @@ h4 {
     position: absolute;
     z-index: 1;
     width: 100%;
-    display: flex;
+    @include flex_justify-content (space-between);
     align-items: center;
-    justify-content: space-between;
     @include width_limit;
     &__menu {
         display: flex;
     }
     &__link {
         font-family: "Source Sans Pro";
-        font-weight: 400;
-        color: white;
-        font-size: 14px;
+        @include font_text(14px, 400, white);
         text-transform: uppercase;
         margin: 0 45px;
         position: relative;
         &__icon {
-            height: 9px;
-            width: 9px;
+            @include dimensions(9px, 9px);
             fill: none;
             stroke: white;
             margin-right: 8px;
@@ -132,7 +118,7 @@ h4 {
         fill: none;
         stroke: white;
         &:hover {
-            fill: #5474fd;
+            fill: $color_icon_hover;
         }
     }
 }
@@ -141,25 +127,15 @@ h4 {
     font-family: $font_title;
     position: relative;
     &__line_black::before {
-        content: "";
-        width: 100px;
-        position: absolute;
-        z-index: 3;
-        top: -20px;
-        left: calc(50% - 50px);
+        @include title_line;
         border-bottom: 1px solid $color_principle;
     }
     &__line_white::before {
-        content: "";
-        width: 100px;
-        position: absolute;
-        z-index: 3;
-        top: -20px;
-        left: 45%;
+        @include title_line;
         border-bottom: 1px solid white;
     }
     &_center {
-        margin: 100px 0 90px;
+        margin: 100px 0 70px;
     }
     &_article {
         margin: 20px 0;
@@ -203,44 +179,34 @@ h4 {
     }
     &__bkgr {
         &_left {
-            position: absolute;
-            width: 40vw;
-            height: 470px;
-            content: "";
-            background-color: $color_bkgr_blue;
+            @include bkgr_projects($color_bkgr_blue);
             left: 0;
-            z-index: -1;
         }
         &_right {
-            position: absolute;
-            width: 40vw;
-            height: 470px;
-            content: "";
-            background-color: $color_bkgr_purple;
+            @include bkgr_projects($color_bkgr_purple);
             right: 0;
-            z-index: -1;
         }
     }
     &__text {
-        display: flex;
+        @include flex_justify-content(end);
         flex-direction: column;
-        justify-content: end;
-        &_left,
-        &_right {
+        &_left {
             padding-left: 70px;
         }
-        // &_right {
-        //     padding-right: 70px;
-        // }
+        &_right {
+            padding-right: 70px;
+        }
         &__desc {
             margin: 20px 0 40px;
         }
     }
     &__image {
-        max-width: 630px;
-        height: auto;
+        // width: auto;
+        // height: 470px;
         &_obj {
             object-fit: contain;
+            width: 610px;
+            height: 450px;
             margin-top: 55px;
         }
     }
@@ -263,24 +229,23 @@ h4 {
 
 // ---------SECTIONS GENERAL----------
 .section {
-    @include width_limit;
     &__title {
         text-align: center;
-        padding: 100px 0;
-    }
-    &_articles {
-        background: url("../img/background_news.png") no-repeat;
-        background-size: cover;
-        width: 100%;
-        height: 1035px;
-    }
-    &__slider {
-        display: flex;
-        justify-content: space-between;
+        padding: 140px 0 50px;
     }
 }
-
-// ------------SECTION SLIDER-------------------
+// ------------ARTICLES-------------------
+.section_articles {
+    @include background_image-size(url("../img/background_news.png"), 100%, 1035px);
+    background-size: cover;
+    &__slider {
+        position: relative;
+        padding: 10px 70px;
+        &__item {
+            @include flex_justify-content(center);
+        }
+    }
+}
 .article {
     max-width: 370px;
     height: 514px;
@@ -294,9 +259,8 @@ h4 {
         &__info {
             margin-left: 20px;
             font-family: $font_title;
-            display: flex;
+            @include flex_justify-content(space-around);
             flex-direction: column;
-            justify-content: space-around;
         }
         &__date {
             @include font_text(14px, 400, $color_bkgr_blue);
@@ -304,11 +268,78 @@ h4 {
     }
     &:hover {
         cursor: pointer;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-            rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        box-shadow: rgba(38, 30, 153, 0.8) 0px 60px 33px -7px;
+        // box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     }
 }
+// // -----------START OF SLIDER-------------------------
+.section_articles__container {
+    padding: 0 calc(50% - 710px);
+    margin: 0 10px;
+    .slick-slider {
+        .slick-list {
+            overflow: hidden;
+        }
+        .slick-track {
+            display: flex;
+        }
+    }
+    .slick-arrow {
+        background: url(../img/arrow.png) 0 0 /100% no-repeat;
+        outline: none;
+        border: none;
+        position: absolute;
+        top: 50%;
+        font-size: 0;
+        @include dimensions(30px, 30px);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 3;
+        &:hover {
+            @include dimensions(40px, 40px);
+        }
+        &.slick-prev {
+            left: 15px;
+            transform: rotate(90deg);
+        }
+        &.slick-next {
+            right: 15px;
+            transform: rotate(-90deg);
+        }
+    }
+    .slick-dots {
+        list-style-type: none;
+        @include flex_justify-content (center);
+        margin-top: 20px;
+        & > li > button {
+            font-size: 0;
+            margin: 0 15px;
+            @include dimensions(15px, 15px);
+            border-radius: 50%;
+            border: 1px solid white;
+            background: none;
+            cursor: pointer;
+            &:hover {
+                position: relative;
+                top: 3px;
+            }
+            &:focus {
+                background-color: antiquewhite;
+            }
+        }
+        .slick-active {
+            button {
+                background-color: white;
+            }
+        }
+    }
+}
+// -----------END OF SLIDER-------------------------
+
 // ------------SECTION GALLERY-------------------
+.section_gallery {
+    @include width_limit;
+}
 .gallery {
     display: flex;
     &__main {
@@ -320,12 +351,10 @@ h4 {
         top: calc(50% - 35px);
         left: calc(50% - 35px);
         &_360 {
-            height: 70px;
-            width: 70px;
+            @include dimensions(70px, 70px);
             &:hover {
                 cursor: pointer;
-                height: 74px;
-                width: 74px;
+                @include dimensions(74px, 74px);
             }
         }
     }
@@ -345,8 +374,7 @@ h4 {
     }
 
     &__button {
-        display: flex;
-        justify-content: center;
+        @include flex_justify-content(center);
         margin: 60px 0 100px;
     }
 }
@@ -359,63 +387,47 @@ h4 {
         background-color: antiquewhite;
     }
     &__wrapper {
-        padding: 20px calc(50% - 590px);
-        background: url('../img/footer_background.png') no-repeat;
-        height: 70vh;
-        width: 100%;
+        @include width_limit;
+        @include background_image-size(url("../img/footer_background.png"), 100%, 70vh);
         background-position: 50% 0;
         background-size: cover;
     }
     &__bottom {
-        display: flex;
-        justify-content: space-between;
-        margin: 200px 0 40px;
-
+        @include flex_justify-content(space-between);
+        padding: 200px 0 40px;
     }
     &__copyright {
         font-family: $font_paragraph_text;
         @include font_text(14px, 400, white);
     }
-
 }
 // FORM
 .form {
-    background: url('../img/form-background.png') no-repeat;
-    height: 450px;
-    width: 770px;
+    @include background_image-size(url("../img/form-background.png"), 770px, 450px);
     background-size: cover;
     background-position: 50% 0;
-    position:absolute;
+    position: absolute;
     left: calc(50% - 385px);
     top: 370px;
     &__title {
-        display: flex;
-        justify-content: center;
+        @include flex_justify-content(center);
         padding: 90px 0 40px;
     }
     &__content {
         padding: 0 40px;
-        display: flex;
-        justify-content: space-around;
+        @include flex_justify-content(space-around);
         height: 200px;
     }
     &__contacts,
     &__submit {
-        display: flex;
+        @include flex_justify-content(space-around);
         flex-direction: column;
-        justify-content: space-around;
         width: 310px;
     }
     &__link {
         font-family: $font_title;
-        @include font_text (18px, 400, $color_principle)
+        @include font_text(18px, 400, $color_principle);
     }
-    // &__submit {
-    //     display: flex;
-    //     flex-direction: column;
-    //     justify-content: space-around;
-    //     width: 310px;
-    // }
     &__input {
         font-family: $font_title;
         outline: none;
@@ -427,12 +439,10 @@ h4 {
         }
     }
     &__button {
-        display: flex;
-        justify-content: end;
+        @include flex_justify-content(end);
     }
     &__icon {
         color: purple;
         margin-right: 10px;
     }
-
 }
