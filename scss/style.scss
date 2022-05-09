@@ -7,6 +7,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+    // scroll-padding-top: 30px;
+  }
 ul {
     list-style-type: none;
 }
@@ -30,16 +34,20 @@ h4 {
     @include font_text(14px, 400, $color_principle);
     text-transform: uppercase;
     text-align: center;
+    @include animation;
     &:hover {
         cursor: pointer;
         border: 2px solid $color_bkgr_blue;
         color: $color_bkgr_blue;
+        font-weight: 600;
     }
 }
 
 // GENERAL HEADER
 .header {
     padding-top: 55px;
+    width: 100%;
+    height: 100vh;
     @include background_image-size(url("../img/banner2.jpg"), 100%, 100vh);
     background-position: 50% 0;
     background-size: cover;
@@ -59,7 +67,7 @@ h4 {
         @include flex_justify-content(center);
         flex-direction: column;
         align-items: center;
-        height: 100vh;
+        height: 90vh;    //
     }
 }
 .arrow {
@@ -69,8 +77,9 @@ h4 {
         bottom: 50px;
         left: calc(50% - 20px);
         &:hover {
-            @include dimensions(50px, 50px);
-            left: calc(50% - 25px);
+            @include dimensions(42px, 42px);
+            bottom: 40px;
+            fill: white;
         }
     }
 }
@@ -134,9 +143,6 @@ h4 {
         @include title_line;
         border-bottom: 1px solid white;
     }
-    &_center {
-        margin: 100px 0 70px;
-    }
     &_article {
         margin: 20px 0;
         @include font_text(22px, 700, $color_principle);
@@ -144,11 +150,17 @@ h4 {
     &_1 {
         @include font_text(80px, 600, $color_title_banner);
         margin: 0 auto;
+        @include animation_title_1;
     }
     &_2 {
         @include font_text(44px, 600, $color_principle);
+        @include animation;
+        &_dark {
+            @include animation;
+        }
         &_white {
             @include font_text(44px, 600, white);
+            @include animation_white;
         }
     }
     &_3 {
@@ -159,6 +171,70 @@ h4 {
         margin: 20px 0;
     }
 }
+
+// ----------START OF VERTICAL SLIDER---------------------------------------
+.header__container {
+    .header__slider {
+       position: relative;
+       width: 100%;
+       overflow: hidden;
+   }
+   
+   .header__slider > button {
+       outline: none;
+       border: none;
+       font-size: 0;
+   }
+   .slider {
+       width: 100%;
+       overflow: hidden;
+   
+     }
+     .slick {
+       position: relative;
+       overflow: hidden;
+     }
+     .slick-no-slide {
+       .slick-track {
+         width: 100% !important;
+         text-align: center;
+         transform: inherit !important;
+       }
+     }
+     .slick-list {
+       overflow: hidden;
+     }
+     .slick-dots {
+         height: 210px;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       position: absolute;
+       z-index: 33333;
+       bottom: calc(50% - 105px);
+       right: 55px;
+       li {
+         button {
+           font-size: 0;
+           margin: 0 15px;
+           width: 10px;
+           height: 10px;
+           border-radius: 50%;
+           border: 1px solid white;
+           background: none;
+           cursor: pointer;
+         }
+       }
+       .slick-active {
+         button {
+           background-color: white;
+         }
+       }
+     }
+     
+   }
+   // ----END OF VERTICAL SLIDER-----
+
 
 // -----------PROJECTS SECTION--------------------
 
@@ -201,8 +277,6 @@ h4 {
         }
     }
     &__image {
-        // width: auto;
-        // height: 470px;
         &_obj {
             object-fit: contain;
             width: 610px;
@@ -231,7 +305,8 @@ h4 {
 .section {
     &__title {
         text-align: center;
-        padding: 140px 0 50px;
+        padding: 160px 0 70px;
+        scroll-padding-top: 100px;
     }
 }
 // ------------ARTICLES-------------------
@@ -241,9 +316,6 @@ h4 {
     &__slider {
         position: relative;
         padding: 10px 70px;
-        &__item {
-            @include flex_justify-content(center);
-        }
     }
 }
 .article {
@@ -269,7 +341,6 @@ h4 {
     &:hover {
         cursor: pointer;
         box-shadow: rgba(38, 30, 153, 0.8) 0px 60px 33px -7px;
-        // box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     }
 }
 // // -----------START OF SLIDER-------------------------
@@ -277,11 +348,18 @@ h4 {
     padding: 0 calc(50% - 710px);
     margin: 0 10px;
     .slick-slider {
+
         .slick-list {
             overflow: hidden;
         }
         .slick-track {
             display: flex;
+            .slick-slide {
+                display: flex;
+                height: auto;
+                align-items: center;
+                justify-content: center;
+            }
         }
     }
     .slick-arrow {
@@ -310,11 +388,11 @@ h4 {
     .slick-dots {
         list-style-type: none;
         @include flex_justify-content (center);
-        margin-top: 20px;
+        margin-top: 50px;
         & > li > button {
             font-size: 0;
             margin: 0 15px;
-            @include dimensions(15px, 15px);
+            @include dimensions(10px, 10px);
             border-radius: 50%;
             border: 1px solid white;
             background: none;
@@ -384,7 +462,6 @@ h4 {
     position: relative;
     &__map {
         height: 700px;
-        background-color: antiquewhite;
     }
     &__wrapper {
         @include width_limit;
@@ -446,3 +523,35 @@ h4 {
         margin-right: 10px;
     }
 }
+
+
+
+
+//  ARROW TO TOP------------------------------------------
+.top {
+    position: fixed;
+    bottom: 50px;
+    right: 55px;
+    transform: rotate(180deg);
+    &_arrow {
+        @include dimensions(40px, 40px);
+        fill: white;
+        stroke: blue;
+        opacity: 0.5;
+        &:hover {
+            opacity: 1.1;
+   @include dimensions(42px, 42px);
+        }
+        
+    }
+    
+    &:hover {
+      text-decoration: none;
+   bottom: 60px;
+    }
+  }
+
+// MAP---------------------------------------------
+  #map {
+    height: 700px;
+  }
