@@ -2,29 +2,32 @@ $('.section_articles__slider').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     dots: true,
-  // autoplay: true,
-  // autoplaySpeed: 4000,
+  autoplay: true,
+  autoplaySpeed: 4000,
+    //  rtl: true,
     responsive: [
       {
         breakpoint: 1280,
         settings: {
-          arrows: false,
+          arrows: true,
           dots: true,
-          slidesToShow: 3
+          slidesToShow: 2,
+          infinite: true,
         }
       },  
       {
-        breakpoint: 920,
+        breakpoint: 1000,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           dots: true,
-          arrows: false,
+          arrows: true
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 576,
         settings: {
           slidesToShow: 1,
+          arrows: false,
         }
       }
     ]
@@ -39,32 +42,70 @@ $('.section_articles__slider').slick({
     vertical: true,
     dots: true,
     autoplay: true,
-    autoplaySpeed: 3000,
-    // responsive: [
-    //   {
-    //     breakpoint: 1280,
-    //     settings: {
-    //       arrows: false,
-    //       dots: true,
-    //       slidesToShow: 2
-    //     }
-    //   },  
-    //   {
-    //     breakpoint: 920,
-    //     settings: {
-    //       slidesToShow: 1,
-    //       dots: true,
-    //       arrows: false,
-    //     }
-    //   },
-    //   {
-    //     breakpoint: 480,
-    //     settings: {
-    //       slidesToShow: 1,
-    //     }
-    //   }
-    // ]
+    autoplaySpeed: 4000,
+   
   });
+
+
+// -------------------------buttons---------------------
+// $('#btn_more').click(func);
+// function func () {
+//     $('#desc+.desc_more').hide();
+// }
+// $('#btn_more').click(function() {
+//   $('#desc_more').hide();
+// })
+
+// $(function(){
+//   $("#btn_more").click(function(){
+//       $("#desc").toggleClass("desc");
+//   })
+// });
+
+// {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+// <div id="clickMe">Click me</div>
+
+// <p id="para" class="myClass">
+//    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing 
+// <p></p> */}
+
+
+// p{
+//   text-overflow: ellipsis;
+//   display: block;
+//    white-space: nowrap;
+//    width:100px;
+// }
+
+// .myClass
+// {
+//   overflow: hidden;
+// }
+
+
+// let button = document.getElementById('btn_more');
+// button.addEventListener('click', function(e) {
+//   e.preventDefault()
+//   let moreText = document.getElementsById('desc_more');
+//   moreText.classList.toggle('desc_more');
+// })
+
+$('document').ready(function() { 
+
+  $('#btn_more').click(function() {
+     $("#desc_more1").css('display', 'block');
+     $("#desc_more1").css('text-align', 'center');
+    $(".expanded_text").css("height", "150px"); 
+    $(".desc").css("margin-bottom", "10px")
+    console.log('hi');
+
+      //expands image on mouse on --ZOOM IN
+  });
+
+
+});
+
+
 
 
   // const anchors = document.querySelectorAll('a[href*="#"]')
@@ -452,3 +493,14 @@ function initMap() {
         icon: image,
     });
 }
+
+
+// $('.nav__burger').click (function(){
+//   $(this).toggleClass('open');
+// });
+
+
+
+
+
+

@@ -1,8 +1,14 @@
-@mixin font_text ($size, $font-weight, $color-text) {
-    font-size: $size;
-    font-weight: $font-weight;
-    color: $color-text;   
-}
+// @mixin font_text ($size, $font-weight, $color-text) {
+//     font-size: $size;
+//     font-weight: $font-weight;
+//     color: $color-text;   
+// }
+@mixin font_text ($font-weight, $color-text) {
+    //     font-size: $size;
+        font-weight: $font-weight;
+        color: $color-text;   
+    }
+
 
 @mixin width_limit () {
     padding: 0 calc(50% - 590px);
@@ -97,6 +103,13 @@
 		font-size: calc(#{$minSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
 	}
 }
+
+
+
+
+
+
+
 
 // $maxWidth: 1280;
 // @mixin adaptiv-font($pcSize, $mobSize) {

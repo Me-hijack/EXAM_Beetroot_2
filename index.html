@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+
     <link rel="stylesheet" href="./css/icons.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>MONTICELLO</title>
@@ -17,13 +18,20 @@
 
     <header class="header">
         <nav class="header__nav nav">
-            <div class="nav__logo logo">
+            <!-- <div class="nav__logo logo">
                 <img src="./img/logo.png" alt="logo" class="logo__image">
-            </div>
+            </div> -->
+
+
+            <picture class="nav__logo logo">
+                <source srcset="./img/logo_small.png" type="image/png" class="logo__image" media="(max-width: 768px)">
+                <img src="./img/logo.png" alt="background" class="logo__image">
+            </picture>
 
             <!-- BURGER -->
-            <!-- <input type="checkbox" class="nav__burger" id="burger">
-            <label for="burger" class="nav__burger-img"></label> -->
+            <div class="burger"></div>
+            <input type="checkbox" class="nav__burger" id="burger">
+            <label for="burger" class="nav__burger-img"></label>
 
             <!-- MENU -->
             <ul class="nav__menu">
@@ -83,10 +91,6 @@
                 </ul>
             </div>
         </nav>
-        <!-- <div class="header__banner">
-            <h1 class="title title_1">Simple & modern</h1>
-            <h4 class="title title_4">WE MAKE THE WORLD BEAUTIFUL EVERYDAY</h4>
-        </div> -->
 
         <!-- START OF VERTICAL SLIDER-->
 <div class="header__container">
@@ -131,7 +135,7 @@
 </div>
 <!-- END OF VERTICAL SLIDER-->
 
-        <a href="#projects" class="arrow" target="">
+        <a href="#projects" class="arrow">
             <svg class="arrow__down">
                 <use xlink:href="./img/svg/sprite.svg#arrow"></use>
             </svg>
@@ -151,16 +155,32 @@
                 <div class="project__bkgr_left"></div>
 
                 <div class="project_left">
-                    <div class="project__image">
+
+
+                    <!-- <div class="project__image">
                         <img src="./img/img_project1.png" alt="" class="project__image_obj">
-                    </div>
+                    </div> -->
+
+                    <picture class="project__image">
+                        <!-- <source srcset="./img/quote-background_375.png" type="image/png" media="(max-width: 375px)"> -->
+                        <source srcset="./img/img_project1_mobile.png" type="image/png" class="project__image_obj" media="(max-width: 450px)">
+                        <source srcset="./img/img_project1_992.png" type="image/png" class="project__image_obj" media="(max-width: 576px)">
+                        <source srcset="./img/img_project1_1200.png" type="image/png" class="project__image_obj" media="(max-width: 1200px)">
+                        <img src="./img/img_project1.png" alt="background" class="project__image_obj">
+                    </picture>
+
                     <div class="project__text project__text_left">
                         <h3 class="title title_3">One world</h3>
                         <h2 class="title title_2 title_2_dark">Trade center</h2>
-                        <p class="project__text__desc desc">Increasing prosperity in our lives can be accomplished by
-                            having
-                            the right frame of mind. The truth is, our thoughts are very powerful.</p>
-                        <button class="btn">More details</button>
+
+                        <div class="expanded_text">
+                            <p class="project__text__desc desc" id="desc">Increasing prosperity in our lives can be accomplished by
+                                having
+                                the right frame of mind. The truth is, our thoughts are very powerful.</p>
+                            <p class="desc_more desc" id="desc_more1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi quia impedit, hic accusantium exercitationem veniam tempore ea dolorum veritatis?</p>                
+                            </div>
+
+                        <button class="btn btn_more" id="btn_more1">More details</button>
 
                         <div class="project__location location">
                             <i class="fa-solid fa-location-dot location__dot"></i>
@@ -175,16 +195,29 @@
 
                 <div class="project_right">
 
-                    <div class="project__image">
+                    <!-- <div class="project__image">
                         <img src="./img/img_project2.png" alt="" class="project__image_obj">
-                    </div>
+                    </div> -->
+
+                    <picture class="project__image">
+                        <!-- <source srcset="./img/quote-background_375.png" type="image/png" media="(max-width: 375px)"> -->
+                        <source srcset="./img/img_project2_mobile.png" type="image/png" class="project__image_obj" media="(max-width: 450px)">
+                        <source srcset="./img/img_project2_992.png" type="image/png" class="project__image_obj" media="(max-width: 576px)">
+                        <source srcset="./img/img_project2_1200.png" type="image/png" class="project__image_obj" media="(max-width: 1200px)">
+                        <img src="./img/img_project2.png" alt="background" class="project__image_obj">
+                    </picture>
+
+
                     <div class="project__text  project__text_right">
                         <h3 class="title title_3">International</h3>
                         <h2 class="title title_2 title_2_dark">Commerce center</h2>
-                        <p class="project__text__desc desc">Successful businesses have many things in common, today
-                            we’ll look at
-                            the big `R` of recognition and how a digital advertising network may help.</p>
-                        <button class="btn">More details</button>
+                        
+                        <div class="expanded_text">
+                            <p class="project__text__desc desc">Successful businesses have many things in common, today we’ll look at the big `R` of recognition and how a digital advertising network may help.</p>
+                            <p class="desc_more desc" id="desc_more2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi quia impedit, hic accusantium exercitationem veniam tempore ea dolorum veritatis?</p>                
+                            </div>
+                        <button class="btn btn_more" id="btn_more2">More details</button>
+
                         <div class="project__location location">
                             <i class="fa-solid fa-location-dot location__dot"></i>
                             <a href="https://www.google.com/maps/search/1588+feet+tall+International+Commerce+Center+in+Hong+Kong/@22.3034032,114.158002,17z/data=!3m1!4b1?hl=en" class="location__point" target="_blank">Hong Kong - 1588 feet</a>
@@ -334,22 +367,42 @@
                     <div class="gallery__view">
                         <img src="./img/360.png" alt="" class="gallery__view_360">
                     </div>
-                    <img src="./img/gallery1.png" alt="" class="gallery__image gallery__image_main">
+
+                    <picture class="gallery__main__image">
+                        <source srcset="./img/gallery_main_small.png" type="image/png" class="gallery__image gallery__image_main" media="(max-width: 592px)">
+                        <source srcset="./img/gallery_main_long.png" type="image/png" class="gallery__image gallery__image_main" media="(max-width: 768px)">
+                        <img src="./img/gallery_main.png" alt="" class="gallery__image gallery__image_main">
+                    </picture>
+
+                    <!-- <div class="gallery__main__image">
+                        <img src="./img/gallery1.png" alt="" class="gallery__image gallery__image_main">
+                    </div> -->
+
+                    <!-- <img src="./img/gallery1.png" alt="" class="gallery__image gallery__image_main"> -->
+                
+                
                 </div>
 
                 <div class="gallery__items">
                     <div class="gallery__items_row">
                         <img src="./img/gallery_1.png" alt="" class="gallery__image">
                         <img src="./img/gallery_3.png" alt="" class="gallery__image">
+
                     </div>
                     <div class="gallery__items_row">
                         <img src="./img/gallery_4.png" alt="" class="gallery__image">
                         <img src="./img/gallery_5.png" alt="" class="gallery__image">
                     </div>
+
+                    <div class="gallery__items_row" id="gallery__items_more">
+                        <img src="./img/gallery_4.png" alt="" class="gallery__image">
+                        <img src="./img/gallery_5.png" alt="" class="gallery__image">
+                    </div>
                 </div>
             </div>
-            <div class="gallery__button button">
-                <button class="gallery__btn btn">See more</button>
+
+           <div class="gallery__button button">
+                <button class="gallery__btn btn" id="gallery__btn">See more</button>
             </div>
 
         </section>
@@ -379,31 +432,31 @@
 
                 <div class="form__content">
                     <div class="form__contacts">
-                        <div class="form__location">
+                        <div class="form__location form__contact-item">
                             <i class="fa-solid fa-location-dot form__icon"></i>
                             <a href="" class="form__link">Hong Kong - 1588 feet</a>
                         </div>
-                        <div class="form__tel">
+                        <div class="form__tel form__contact-item">
                             <i class="fa-solid fa-phone form__icon"></i>
                             <a class="form__link" href="tel:+0013568682454">+001 356-868-2454</a>
                         </div>
-                        <div class="form__email">
+                        <div class="form__email form__contact-item">
                             <i class="fa-solid fa-inbox form__icon"></i>
                             <a class="form__link" href="montichello@service.com">montichello@service.com</a>
                         </div>
-                        <div class="form__time">
+                        <div class="form__time form__contact-item">
                             <i class="fa-solid fa-clock form__icon"></i>
                             <span class="form__link">From 07:05AM to 19:30PM</span>
                         </div>
 
                     </div>
-                    <div class="form__submit">
-                        <input type="text" class="form__input">
-                        <input type="email" class="form__input" placeholder="Email">
+                    <form class="form__submit">
+                        <input type="text" class="form__input" placeholder="Full Name" required>
+                        <input type="email" class="form__input" placeholder="Email" required>
                         <div class="form__button">
-                            <button class="btn">Submit</button>
-                        </div>
+                        <input type="submit" value="Submit" class="btn form__button_small">
                     </div>
+                    </form>
                 </div>
             </div>
 
@@ -414,7 +467,7 @@
                 <div class="nav__logo logo">
                     <img src="./img/logo.png" alt="logo" class="logo__image">
                 </div>
-                <div class="social">
+                <div class="social footer__social">
                     <ul class="social__list">
                         <li>
                             <a href="https://www.facebook.com/" class="social__link" target="_blank">
@@ -446,7 +499,7 @@
         </div>
     </footer>
 
-    <a href="#top" class="top" target="">
+    <a href="#top" class="top">
         <svg class="top_arrow">
             <use xlink:href="./img/svg/sprite.svg#to_top"></use>
         </svg>
@@ -455,18 +508,26 @@
 
 
 <!-- SCRIPT -->
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-<script src="./js/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+
 
 <script src="./js/script.js"></script>
+<script src="./js/app.js"></script>
 <script
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaZjf2a3yc4ySp6q2YlpQpJGrp-pKVcd0&callback=initMap&v=weekly"
 defer
 ></script>
 
-    <!-- <script src="https://kit.fontawesome.com/26d447955d.js" crossorigin="anonymous"></script> -->
+    
 </body>
 
 </html>
+
+
+
+<!-- <script src="./js/script.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./js/jquery.js"></script> -->
