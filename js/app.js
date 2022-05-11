@@ -17,13 +17,12 @@ $('document').ready(function() {
     //    console.log('hi');
      });
 
-    //  $('#gallery__btn').click(function() {
-    //     // $(".desc").css("margin-bottom", "20px"); 
-    //     $("#gallery__items_more").fadeToggle();
-        
-    //     // $("#desc_more2").css("text-align", "center");
-    //    console.log('hi');
-    //  });
+     $('#gallery__btn').click(function() {
+        // $(".desc").css("margin-bottom", "20px"); 
+        $("#gallery__items_more").fadeToggle();
+        $(".gallery__items_row").css("width", "284px");
+       console.log('hi');
+     });
 
   });
   
@@ -60,5 +59,5 @@ galleryButton.addEventListener('click', function handleClick() {
 
 
 
-// VALIDATION
+
 
